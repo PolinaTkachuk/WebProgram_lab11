@@ -18,3 +18,4 @@ class CalculatorModel extends Model
     }
 
 }
+
