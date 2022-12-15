@@ -1,41 +1,86 @@
-
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <title> PassUsingModel - Backend1</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css">
 </head>
 
 <body>
-<header>//заголовок черная полоска
+<header>
     <div class="header">Backend1</div>
-    <a href="~/"><div class="main_link">Home</div></a>
+    <a href="/home" class="Home">Home</a>
 </header>
 
 <div class="content">
     <h2> PassUsingModel </h2>
-    @foreach($model as $model_)
     <div class="calc">
+        <div>Rand Value First :  {{$model->first_number}}   </div>
+        <div>Rand Value Second:  {{$model->second_number}}   </div>
+        <div>Add : </div>
+        <p>{{$model->first_number}} + {{$model->second_number}} = {{$model->first_number+$model->second_number}} <br /></p>
+        <div>Sub : </div>
+        <p>{{$model->first_number}} - {{$model->second_number}} = {{$model->first_number-$model->second_number}} <br /></p>
+        <div>Mult: </div>
+        <p>{{$model->first_number}} * {{$model->second_number}} = {{$model->first_number*$model->second_number}}<br /></p>
+        <div>Div : </div>
+        @if($model->second_number)
+            <p>{{$model->first_number}} / {{$model->second_number}} = {{$model->first_number/$model->second_number}} <br /></p>
 
-        //НЕ ВИДИТ ДАННЫЕ С КОНТРОЛЛЕРА НЕ ВИДИТ $object_model
+        @else
+                <?php echo ('Error: division by zero')?>
 
-        <div>Rand Value First :  {{$model_['first_number'] }}   </div> <br />
 
-        <div>Add : </div><br />
-        {{$object_model->first_number}} + {{$object_model->second_number }} = {{$object_model->addition}} <br />
-        <div>Sub : </div><br />
-        {{$object_model->first_number}} - {{$object_model->second_number }} = {{$object_model->subtraction}} <br />
-        <div>Mult: </div><br />
-        {{$object_model->first_number}} * {{$object_model->second_number }} = {{$object_model->multiplication}} <br />
-        <div>Div : </div><br />
-        {{$object_model->first_number}} / {{$object_model->second_number }} = {{$object_model->division}} <br />
+@endif
 
     </div>
 </div>
 <footer>© 2022 - Backend1</footer>
 </body>
 </html>
-@endforeach
 
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        margin-left: 7%;
+    }
+    header{
+        padding-top: 3%;
+        padding-bottom: 3%;
+        background-color: black;
+        color:gray;
+        font-size: 20px;
+        font-weight: bold;
+        margin:-10px -10px -10px -8%;
+        text-align: left;
+
+    }
+    .header{
+        font-size: 30px;
+        padding-left:7%;
+        display: inline-block;
+
+    }
+    .Home{
+        padding-left:45px;
+        color:gray;
+        text-decoration:none;
+    }
+    h2{
+        font-size: 48px;
+    }
+    .calc div {
+        font-weight: bold;
+        font-size: 16px;
+        padding: 4px;
+
+    }
+    footer {
+        border-top: solid 1px gainsboro;
+        padding-top: 35px;
+        margin-top: 30px;
+        font-size: 16px;
+    }
+
+</style>
 

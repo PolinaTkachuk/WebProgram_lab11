@@ -13,14 +13,3 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }
 
-class FirstController extends Controller
-{
-    public function connection_1()
-    {
-        return 'connection of FirstController with Route in address(/MyPage)';
-    }
-
-    public function connection_2(){
-        return 'connection2';
-    }
-}
